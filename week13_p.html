@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-migrate-3.3.2.js"></script>
+    <meta charset="UTF-8">
+    <style>
+        label {
+            display: block;
+        }
+        .box{
+            position: relative;
+            background-color: blue;
+            width: 100px;
+            height: 100px;
+            left:200px;
+            top:200px;
+        }
+        
+    </style>
+    <script>
+        $('document').ready(()=>{
+            $('#submit').on('click',()=>{
+                $('.box').animate({
+                    left:$('.inp').val(),
+                    top:$('.inp').val()
+                })
+            })
+        })
+        // input 하나 버튼 하나 input에 숫자 적으면 div - position animate
+    </script>
+    <title>Document</title>
+    
+</head>
+<body>
+    <label for="name">Input (Number):</label>    
+    <input type="text" class="inp" name="inp" required>
+    <button id="submit">OK</button>
+    <div class="box"></div>
+</body>
+</html>

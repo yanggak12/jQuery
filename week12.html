@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-migrate-3.3.2.js"></script>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        $(document).ready(()=>{
+            $('img').each(function(index,element){
+                $(this).attr('src','http://placehold.it/'+String(index+1)*100+'x100');
+                $(this).attr('border','1px')
+                $(this).attr('class','img'+index)
+            })
+            $('.img2').attr('border','0px')
+        })
+        // 1. 테두리(border) 넣어주기
+        // 2. 클래스 선언해주기 이미지 0 ~ 2
+        // 3. 3번째 이미지(.img2)만 테두리 지우기
+    </script>
+</head>
+<body>
+    <img />
+    <img />
+    <img />
+</body>
+</html>

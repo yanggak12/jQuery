@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            const name = document.getElementById('inp');
+            const gender = document.getElementById('gender');
+            submitcheck = () => {
+                alert(gender.options[gender.selectedIndex].text+name.value)
+            }
+            
+            
+        }
+    </script>
+</head>
+    
+    <form action="#" method="POST" name="myForm" onsubmit="return submitcheck()">
+        <label id="inpName">이름</label>
+        <input id="inp" type="text" name="myName" placeholder="name input...">
+        <label id="inpName">성별</label>
+        <select id ="gender" name="myGender">
+            <option value="남">남자</option>
+            <option value="여">여자</option>
+            <option value="그 외">그 외</option>
+        </select>
+            <input type="submit" value="등록"/>
+    </form>
+    
+</body>
+</html>

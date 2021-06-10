@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>1724443 양윤상</title>
+    <script type="text/javascript">
+        let memberList = [];
+        
+         function submit_chk (myForm){
+            let myName = myForm.user_name.value;
+            let myTel = myForm.user_tel.value;
+            // 이름 한글 3~4글자
+            let regexName = /[가-힣]/;
+            // 연락처 010 으로 시작
+            let regexTel = /^010[0-9]/
+            let nameTest = regexName.test(myName) && (myName.length < 5)
+            let telTest = regexTel.test(myTel) && (myTel.length === 11)
+            
+            if(nameTest && telTest){
+                // 정규화 표현식 모두 맞을때 - 배열 객체에 해당 추가 정보 저장
+                memberList.push({
+                    name:myName,
+                    tel:myTel});
+                alert('회원 정보가 정상적으로 등록되었습니다.')
+                return false;
+            }
+            else{ 
+                // 정규화 표현식 다를때 - 각각 다른 해당 정보에 대한 알림창, 저장 안함.
+                if(!nameTest && telTest){
+                alert('올바른 이름 입력이 아닙니다.')
+                }
+                else if(!telTest && nameTest)
+                {
+                    alert('전화번호 입력을 확인하세요')
+                }
+                else{
+                    alert('입력 양식에 오류가 있습니다.')
+                }
+                return false;
+            }
+            
+        }
+        function reset_chk(myFrom){
+            // 가입 취소 : 가입 취소 알림창
+            alert('가입 취소')
+            // 원래 지워짐
+        }
+
+        const toggleList = () => {
+            // 정보 출력 동작 - 버튼 클릭 시 배열 객체에 있는 정보를 <p> 태그 사용하여 출력 테이블 사용 가능
+            document.getElementById('list').innerHTML = '';
+            let i = 0;
+            while(i<memberList.length){
+                document.getElementById('list').innerHTML +=
+                `<h3>${memberList[i].name}, ${memberList[i].tel}</h3>`
+                i = i+1;
+            }
+            
+        }
+        const hideList = () => {
+            // 내용 지움 동작 - 출력 된 <p> 태그들을 모두 지움 innerHTML "" 만 하면 된다
+            document.getElementById('list').innerHTML = '';
+        }
+        // form 아래에 "정보 출력" 버튼 "내용 지움" 추가
+    </script>
+</head>
+<body onload="document.f1.user_name.focus();">
+    <form action="#" name="f1" onsubmit="return submit_chk(this);" onreset="return reset_chk(this);">
+        <fieldset>
+            <legend> 회원 가입 </legend>
+            <p>
+                <label for="user_name"> 이름 : </label>
+                <input type="text" name="user_name" id="user_name" maxlength="5" placeholder="이름 입력(4글자까지)"/>
+            </p>
+            <p>
+                <label for="user_tel"> 연락처 : </label>
+                <input type="text" name="user_tel" id="user_tel" placeholder="예.01012345678(-빼고)"/>
+            </p>
+            <p>
+                <input type="submit" value="회원가입"/>
+                <input type="reset" value="취소" />
+            </p>
+        </fieldset>
+    </form>
+    <h1>회원 리스트</h1>
+    <button id="btn" onclick="return toggleList()">회원 정보 보기</button>
+    <button id="btn" onclick="return hideList()">회원 정보 숨기기</button>
+    <p id="list"></p>
+</body>
+</html>

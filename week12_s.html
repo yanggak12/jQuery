@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-migrate-3.3.2.js"></script>
+    <title>Document</title>
+    <script>
+        $(document).ready(()=>{
+            let i = 1;
+            $('#toggle').on('click',()=>{
+                let cnt = 0;
+                $('<div></div>').attr('class',`view${i}`).appendTo('body');
+                $('<h3></h3>').text(cnt).attr('id',`num${i}`).appendTo(`.view${i}`);
+                $('<button></button>').text('increase').attr('id',`inc${i}`).appendTo(`.view${i}`);
+                $('<button></button>').text('decrease').attr('id',`dec${i}`).appendTo(`.view${i}`);
+                $(`#inc${i}`).on('click',()=>{
+                    cnt = cnt+1;
+                    $(`#num${i}`).text(cnt)
+                })
+                $(`#inc${i}`).on('click',()=>{
+                    cnt = cnt-1;
+                    $(`#num${i}`).text(cnt)
+                })
+                console.log($(`#num${i}`))
+                i = i +1;
+            })
+        })
+    </script>
+    
+</head>
+<body>
+    <button id="toggle">버튼 추가하기</button>
+</body>
+</html>

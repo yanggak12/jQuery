@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-migrate-3.3.2.js"></script>
+    <title>Document</title>
+    <script>
+        //이벤트 직접 연결
+        $(document).ready(()=>{
+            $('h1').css("color","blue");
+            let handler = () => {
+                $('<h1></h1>').text($(this).text()).on('click',handler).appendTo('body');
+            }
+            $('h1').on('click',handler);
+        })
+    </script>
+</head>
+<body>
+    <h1>Header</h1>
+    
+</body>
+</html>

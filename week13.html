@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-migrate-3.3.2.js"></script>
+    <meta charset="UTF-8">
+    <style>
+        .box{
+            position: absolute;
+            background-color: blue;
+            width: 100px;
+            height: 100px;
+            left:10px;
+            top:10px;
+        }
+    </style>
+    <script>
+        $('document').ready(()=>{
+            $('#btn1').on('click',()=>{
+                $('h1').fadeOut(1000)
+            })
+            $('#btn2').on('click',()=>{
+                $('h1').fadeIn(1000)
+            })
+            $('#btn3').on('click',()=>{
+                $('h1').fadeToggle(1000)
+            })
+            $('#btn4').on('click',()=>{
+                $('h1').fadeTo(1000,0.5)
+            })
+            $('#btn5').on('click',()=>{
+                $('h1').slideDown(1000)
+            })
+            $('#btn6').on('click',()=>{
+                $('h1').slideUp(1000)
+            })
+            $('#btn7').on('click',()=>{
+                $('.box').animate({
+                    left:1000
+                },1000)
+            })
+        })
+    </script>
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn1">Hide</button>
+    <button id="btn2">Show</button>
+    <button id="btn3">Toggle</button>
+    <button id="btn4">To</button>
+    <button id="btn5">Slide Down</button>
+    <button id="btn6">Slide Up</button>
+    <button id="btn7">Animate</button>
+    <h1 class="box">ㄴ애용</h1>
+</body>
+</html>

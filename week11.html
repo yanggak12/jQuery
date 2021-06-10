@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="/Users/yang-yoonsang/donga/sosil/jquery/jquery-3.6.0.min.js"></script>
+    <script src="/Users/yang-yoonsang/donga/sosil/jquery/jquery-migrate-3.3.2.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+<script>
+    $(document).ready(function(){
+       let $header = $('h1');
+       let $h1B = $header.get(1);
+       $h1B.innerHTML = '최근영 B급'
+    })
+</script>
+    <h1 id="A">HeaderA</h1>
+    <h1 class="B">HeaderB</h1>
+    <h1>HeaderC</h1>
+    <h1>HeaderD</h1>
+</body>
+</html>

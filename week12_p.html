@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-migrate-3.3.2.js"></script>
+    <title>Document</title>
+    <script>
+        $(document).ready(()=>{
+            $('<h1></h1>').text("안녕하세요").attr('id','test1').appendTo('body');
+            $('#test1').css({backgroundColor:'red',color:'white'})
+            // 1번
+            $('<div></div>').attr('class','target').insertAfter('#test1');
+            // 2번
+            $('<h1></hi>').text("appendTo").appendTo('.target');
+            // 3번
+            $('.target').css('border-style','solid')
+            // 4번
+            $('<h1></hi>').text("prependTo").prependTo('.target');
+        })
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
